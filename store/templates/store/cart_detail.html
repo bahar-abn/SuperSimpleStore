@@ -1,0 +1,10 @@
+<h1>Your Cart</h1>
+<ul>
+    {% for item in cart.cartitem_set.all %}
+    <li>
+        {{ item.product.name }} - {{ item.quantity }} - ${{ item.total_price }}
+        <a href="{% url 'remove_from_cart' item.id %}">Remove</a>
+    </li>
+    {% endfor %}
+</ul>
+<p>Total: ${{ cart.total_price }}</p>
